@@ -17,7 +17,7 @@ export default function ProductCard({ product, onAddToCart }) {
           aria-label={product.name}
         >
           <rect width="40" height="100" x="30" y="20" fill="#e7e4da" rx="4" />
-          <rect width="20" height="30" x="40" y="0" fill="#b08d3e" rx="2" />
+          <rect width="20" height="30" x="40" y="0" fill={product.color || '#b08d3e'} rx="2" />
         </svg>
       </div>
       <h3>{product.name}</h3>

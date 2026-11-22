@@ -77,7 +77,7 @@ function App() {
         />
         <Route
           path="/shop"
-          element={<Shop products={products} loading={loading} error={error} retry={retry} />}
+          element={<Shop products={products} cart={cart} loading={loading} error={error} retry={retry} />}
         />
         <Route
           path="/product/:id"

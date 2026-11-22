@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard.jsx';
+import { deliveryRule } from '../utils/rules.js';
 
 const CATEGORIES = ['For Him', 'For Her', 'Unisex'];
 
-export default function Shop({ products, loading, error, retry }) {
+export default function Shop({ products, cart, loading, error, retry }) {
   if (loading) {
     return (
       <main>
@@ -67,9 +68,17 @@ export default function Shop({ products, loading, error, retry }) {
   const labelStyle = { display: 'block', marginBottom: '0.4rem', fontSize: '0.9rem' };
   const gridStyle = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1.5rem' };
 
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const delivery = deliveryRule(subtotal);
+
   return (
     <main>
       <h1>Shop</h1>
+      <div style={{ marginBottom: '1rem', padding: '0.75rem', background: '#faf9f6', border: '1px solid var(--border)', borderRadius: 6 }}>
+        <p style={{ margin: 0, fontSize: '0.9rem' }}>
+          {delivery.message} <span style={{ fontWeight: '600' }}>Cart subtotal: Rs. {subtotal}</span>
+        </p>
+      </div>
       <div style={filterStyle}>
         <div style={colStyle}>
           <label htmlFor="search" style={labelStyle}>

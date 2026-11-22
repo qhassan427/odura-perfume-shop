@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { maxPerItemRule } from '../utils/rules.js';
+import { deliveryRule } from '../utils/rules.js';
 
 export default function Product({ products, setCart, cart }) {
   const { id } = useParams();
@@ -23,6 +24,9 @@ export default function Product({ products, setCart, cart }) {
   const [addMsg, setAddMsg] = useState('');
   const [selectedSize, setSelectedSize] = useState(product.sizes[0].size);
   const [selectedQty, setSelectedQty] = useState(1);
+
+  const productSubtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const productDelivery = deliveryRule(productSubtotal);
 
   function addToCart(size, qty) {
     const sizeEntry = product.sizes.find((s) => s.size === size);
@@ -58,6 +62,11 @@ export default function Product({ products, setCart, cart }) {
       <Link to="/shop" style={{ marginBottom: '1rem', display: 'inline-block' }}>
         &larr; Back to shop
       </Link>
+      <div style={{ marginBottom: '1rem', padding: '0.75rem', background: '#faf9f6', border: '1px solid var(--border)', borderRadius: 6 }}>
+        <p style={{ margin: 0, fontSize: '0.9rem' }}>
+          {productDelivery.message} <span style={{ fontWeight: '600' }}>Cart subtotal: Rs. {productSubtotal}</span>
+        </p>
+      </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'start' }}>
         <div>
           <svg
@@ -68,7 +77,7 @@ export default function Product({ products, setCart, cart }) {
             aria-label={product.name}
           >
             <rect width="40" height="100" x="30" y="20" fill="#e7e4da" rx="4" />
-            <rect width="20" height="30" x="40" y="0" fill="#b08d3e" rx="2" />
+            <rect width="20" height="30" x="40" y="0" fill={product.color || '#b08d3e'} rx="2" />
           </svg>
           <p style={{ marginTop: '0.5rem', fontSize: '0.85rem', color: '#66625c' }}>
             Image: bottle illustration for {product.name}

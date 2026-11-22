@@ -1,3 +1,3 @@
-done: Milestone 3 complete (Cart with add/remove/change qty+size, Checkout form with validation, itemised summary with delivery fee, 3 business rules, Confirmation page labelled simulated)
-next: Milestone 4 - Problem fixes and responsive styling: 390px and 1280px, keyboard use, visible focus, labels, semantic HTML
+done: Milestone 4 complete (delivery banners on Shop and Product pages, per-perfume bottle colours, visible focus outlines, centered container layout)
+next: Milestone 5 - Edge cases and docs: restored cart validation, change stock demo control, rule 1 test module, tests/rules.test.js, npm test script, vercel.json, DECISIONS.md, README updates
 known issues: none

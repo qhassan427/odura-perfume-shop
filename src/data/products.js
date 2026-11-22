@@ -3,6 +3,7 @@ const products = [
     id: 'p1',
     name: 'Oud Noir',
     category: 'For Him',
+    color: '#8e44ad',
     notes: 'oud, leather, spice, smoke',
     description: 'A deep, smoky fragrance with rich oud and leather notes.',
     sizes: [
@@ -15,6 +16,7 @@ const products = [
     id: 'p2',
     name: 'Spice Route',
     category: 'For Him',
+    color: '#c0392b',
     notes: 'cinnamon, cardamom, pepper, amber',
     description: 'Warm spices with a resinous amber base.',
     sizes: [
@@ -27,6 +29,7 @@ const products = [
     id: 'p3',
     name: 'Leather & Smoke',
     category: 'For Him',
+    color: '#34495e',
     notes: 'leather, tobacco, smoke, vetiver',
     description: 'Bold leather accord with a smoky, masculine dry-down.',
     sizes: [
@@ -39,6 +42,7 @@ const products = [
     id: 'p4',
     name: 'Rose Velvet',
     category: 'For Her',
+    color: '#ad1457',
     notes: 'rose, peony, musk, vanilla',
     description: 'A soft, velvety rose scent with a creamy vanilla base.',
     sizes: [
@@ -51,6 +55,7 @@ const products = [
     id: 'p5',
     name: 'Jasmine Mist',
     category: 'For Her',
+    color: '#27ae60',
     notes: 'jasmine, orange blossom, neroli, citrus',
     description: 'Light and floral with bright citrus opening notes.',
     sizes: [
@@ -63,6 +68,7 @@ const products = [
     id: 'p6',
     name: 'Vanilla Glow',
     category: 'For Her',
+    color: '#d35400',
     notes: 'vanilla, tonka bean, benzoin, caramel',
     description: 'Sweet, comforting vanilla with a warm caramel finish.',
     sizes: [
@@ -75,6 +81,7 @@ const products = [
     id: 'p7',
     name: 'Citrus Spark',
     category: 'Unisex',
+    color: '#f1c40f',
     notes: 'bergamot, lemon, lime, mandarin',
     description: 'Fresh citrus burst, clean and energising for anyone.',
     sizes: [
@@ -87,6 +94,7 @@ const products = [
     id: 'p8',
     name: 'White Tea',
     category: 'Unisex',
+    color: '#16a085',
     notes: 'white tea, jasmine, cucumber, musk',
     description: 'Clean, minimalist scent with white tea and fresh cucumber.',
     sizes: [
@@ -99,6 +107,7 @@ const products = [
     id: 'p9',
     name: 'Amber Woods',
     category: 'Unisex',
+    color: '#8e44ad',
     notes: 'amber, sandalwood, cedar, vanilla',
     description: 'Warm amber and woody notes, balanced and unisex.',
     sizes: [
@@ -111,6 +120,7 @@ const products = [
     id: 'p10',
     name: 'Midnight Oud',
     category: 'For Him',
+    color: '#2c3e50',
     notes: 'oud, incense, patchouli, saffron',
     description: 'Intense oud with incense and saffron for evening wear.',
     sizes: [
@@ -123,6 +133,7 @@ const products = [
     id: 'p11',
     name: 'Golden Petals',
     category: 'For Her',
+    color: '#e67e22',
     notes: 'ylang-ylang, tuberose, orange blossom, honey',
     description: 'Luxurious white florals with a honeyed warmth.',
     sizes: [
@@ -135,6 +146,7 @@ const products = [
     id: 'p12',
     name: 'Silk Road',
     category: 'Unisex',
+    color: '#7f8c8d',
     notes: 'frankincense, myrrh, cardamom, orange',
     description: 'Spicy-resinous scent inspired by ancient trade routes.',
     sizes: [
