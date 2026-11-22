@@ -27,6 +27,7 @@ body {
   color: var(--text);
   font-size: 16px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
@@ -171,7 +172,10 @@ nav .container {
 }
 
 main {
-  padding: 2rem 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 16px;
+  width: 100%;
 }
 
 .card {

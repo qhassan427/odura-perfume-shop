@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { loadProducts } from './utils/loader.js';
 import Nav from './components/Nav.jsx';
 import Home from './pages/Home.jsx';
@@ -8,14 +8,19 @@ import Product from './pages/Product.jsx';
 import Cart from './pages/Cart.jsx';
 import Checkout from './pages/Checkout.jsx';
 import Confirmation from './pages/Confirmation.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [cart, setCart] = useState(() => {
-    const saved = window.localStorage.getItem('odura_cart');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = window.localStorage.getItem('odura_cart');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   useEffect(() => {
@@ -81,7 +86,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/confirmation" element={<Confirmation />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
