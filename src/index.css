@@ -145,6 +145,22 @@ nav .container {
   color: var(--accent-dark);
 }
 
+.nav-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggle-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
 .cart-badge {
   background: var(--accent-dark);
   color: #fff;

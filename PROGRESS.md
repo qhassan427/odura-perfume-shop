@@ -1,3 +1,3 @@
-done: Milestone 1 setup complete (Vite, React, react-router-dom, folders, data file, placeholder pages, CSS, README, PROGRESS.md)
-next: Milestone 2 - Routes and browsing: real Shop page with search/filter/sort, Product details with invalid ID handling, async mock loader with loading/error/retry
-known issues: none yet
+done: Milestone 2 complete (Shop with search/filter/sort, Product details with invalid ID handling, async mock loader with loading/error/retry, empty states)
+next: Milestone 3 - Cart, form, rules: add/remove/change quantity and size, localStorage, checkout form, validation, itemised summary, 3 business rules, confirmation page
+known issues: none
