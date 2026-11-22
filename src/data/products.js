@@ -1,0 +1,148 @@
+const products = [
+  {
+    id: 'p1',
+    name: 'Oud Noir',
+    category: 'For Him',
+    notes: 'oud, leather, spice, smoke',
+    description: 'A deep, smoky fragrance with rich oud and leather notes.',
+    sizes: [
+      { size: '5ml', price: 300, stock: 20 },
+      { size: '30ml', price: 1500, stock: 15 },
+      { size: '50ml', price: 2400, stock: 10 },
+    ],
+  },
+  {
+    id: 'p2',
+    name: 'Spice Route',
+    category: 'For Him',
+    notes: 'cinnamon, cardamom, pepper, amber',
+    description: 'Warm spices with a resinous amber base.',
+    sizes: [
+      { size: '5ml', price: 250, stock: 25 },
+      { size: '30ml', price: 1200, stock: 20 },
+      { size: '50ml', price: 1900, stock: 12 },
+    ],
+  },
+  {
+    id: 'p3',
+    name: 'Leather & Smoke',
+    category: 'For Him',
+    notes: 'leather, tobacco, smoke, vetiver',
+    description: 'Bold leather accord with a smoky, masculine dry-down.',
+    sizes: [
+      { size: '5ml', price: 350, stock: 10 },
+      { size: '30ml', price: 1800, stock: 8 },
+      { size: '50ml', price: 2800, stock: 5 },
+    ],
+  },
+  {
+    id: 'p4',
+    name: 'Rose Velvet',
+    category: 'For Her',
+    notes: 'rose, peony, musk, vanilla',
+    description: 'A soft, velvety rose scent with a creamy vanilla base.',
+    sizes: [
+      { size: '5ml', price: 300, stock: 15 },
+      { size: '30ml', price: 1400, stock: 12 },
+      { size: '50ml', price: 2200, stock: 8 },
+    ],
+  },
+  {
+    id: 'p5',
+    name: 'Jasmine Mist',
+    category: 'For Her',
+    notes: 'jasmine, orange blossom, neroli, citrus',
+    description: 'Light and floral with bright citrus opening notes.',
+    sizes: [
+      { size: '5ml', price: 250, stock: 30 },
+      { size: '30ml', price: 1100, stock: 18 },
+      { size: '50ml', price: 1700, stock: 15 },
+    ],
+  },
+  {
+    id: 'p6',
+    name: 'Vanilla Glow',
+    category: 'For Her',
+    notes: 'vanilla, tonka bean, benzoin, caramel',
+    description: 'Sweet, comforting vanilla with a warm caramel finish.',
+    sizes: [
+      { size: '5ml', price: 200, stock: 40 },
+      { size: '30ml', price: 900, stock: 25 },
+      { size: '50ml', price: 1400, stock: 20 },
+    ],
+  },
+  {
+    id: 'p7',
+    name: 'Citrus Spark',
+    category: 'Unisex',
+    notes: 'bergamot, lemon, lime, mandarin',
+    description: 'Fresh citrus burst, clean and energising for anyone.',
+    sizes: [
+      { size: '5ml', price: 150, stock: 50 },
+      { size: '30ml', price: 700, stock: 30 },
+      { size: '50ml', price: 1000, stock: 25 },
+    ],
+  },
+  {
+    id: 'p8',
+    name: 'White Tea',
+    category: 'Unisex',
+    notes: 'white tea, jasmine, cucumber, musk',
+    description: 'Clean, minimalist scent with white tea and fresh cucumber.',
+    sizes: [
+      { size: '5ml', price: 180, stock: 35 },
+      { size: '30ml', price: 800, stock: 28 },
+      { size: '50ml', price: 1200, stock: 22 },
+    ],
+  },
+  {
+    id: 'p9',
+    name: 'Amber Woods',
+    category: 'Unisex',
+    notes: 'amber, sandalwood, cedar, vanilla',
+    description: 'Warm amber and woody notes, balanced and unisex.',
+    sizes: [
+      { size: '5ml', price: 280, stock: 20 },
+      { size: '30ml', price: 1300, stock: 16 },
+      { size: '50ml', price: 2000, stock: 10 },
+    ],
+  },
+  {
+    id: 'p10',
+    name: 'Midnight Oud',
+    category: 'For Him',
+    notes: 'oud, incense, patchouli, saffron',
+    description: 'Intense oud with incense and saffron for evening wear.',
+    sizes: [
+      { size: '5ml', price: 400, stock: 5 },
+      { size: '30ml', price: 2000, stock: 4 },
+      { size: '50ml', price: 3200, stock: 3 },
+    ],
+  },
+  {
+    id: 'p11',
+    name: 'Golden Petals',
+    category: 'For Her',
+    notes: 'ylang-ylang, tuberose, orange blossom, honey',
+    description: 'Luxurious white florals with a honeyed warmth.',
+    sizes: [
+      { size: '5ml', price: 320, stock: 8 },
+      { size: '30ml', price: 1600, stock: 6 },
+      { size: '50ml', price: 2500, stock: 4 },
+    ],
+  },
+  {
+    id: 'p12',
+    name: 'Silk Road',
+    category: 'Unisex',
+    notes: 'frankincense, myrrh, cardamom, orange',
+    description: 'Spicy-resinous scent inspired by ancient trade routes.',
+    sizes: [
+      { size: '5ml', price: 220, stock: 12 },
+      { size: '30ml', price: 950, stock: 10 },
+      { size: '50ml', price: 1500, stock: 8 },
+    ],
+  },
+];
+
+export default products;
