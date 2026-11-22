@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { maxPerItemRule, sampleRule, deliveryRule } from '../utils/rules.js';
 
 export default function Cart({ cart, setCart, products }) {
+  const navigate = useNavigate();
   const [rule1Message, setRule1Message] = useState('');
   const [restoreMessage, setRestoreMessage] = useState('');
 
@@ -113,7 +114,7 @@ export default function Cart({ cart, setCart, products }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}><span>Subtotal</span><span>Rs. {subtotal}</span></div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem', color: '#66625c' }}><span>Delivery</span><span>Rs. {delivery.deliveryFee}</span></div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: '600', fontSize: '1.1rem', marginBottom: '1rem' }}><span>Total</span><span>Rs. {total}</span></div>
-            <button className="btn btn-primary" disabled={!sampleCheck.allowed || cart.length === 0}>Proceed to checkout</button>
+            <button className="btn btn-primary" onClick={() => navigate('/checkout')} disabled={!sampleCheck.allowed || cart.length === 0}>Proceed to checkout</button>
           </div>
         </>
       )}
