@@ -30,7 +30,7 @@ Runs the business rule test (max 5 per item) using Node.js built-in test runner.
 
 ## Links
 - GitHub: https://github.com/qhassan427/odura-perfume-shop
-- Deployment: (to be added after deployment)
+- https://odura-perfume-shop.vercel.app
 
 ## Main Routes
 - `/` - Home page
