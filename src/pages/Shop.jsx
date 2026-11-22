@@ -145,6 +145,26 @@ export default function Shop({ products, cart, loading, error, retry }) {
           ))}
         </div>
       )}
+      <div style={{ marginTop: '3rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border)' }}>
+        <h3 style={{ marginBottom: '0.5rem' }}>Change stock (demo)</h3>
+        <p style={{ fontSize: '0.85rem', color: '#66625c', marginBottom: '0.5rem' }}>
+          Adjust stock of a size to test out-of-stock and cart restore behaviour.
+        </p>
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'end' }}>
+          <select id="demo-product" className="focus-visible" style={{ minWidth: '160px' }}>
+            {products.map((p) => (
+              <option key={p.id} value={p.id}>{p.name}</option>
+            ))}
+          </select>
+          <select id="demo-size" className="focus-visible" style={{ minWidth: '90px' }}>
+            <option value="5ml">5ml</option>
+            <option value="30ml">30ml</option>
+            <option value="50ml">50ml</option>
+          </select>
+          <input id="demo-stock" type="number" min="0" className="focus-visible" style={{ width: '70px' }} />
+          <button className="btn btn-primary" style={{ padding: '0.6rem 1rem' }}>Set stock</button>
+        </div>
+      </div>
     </main>
   );
 }

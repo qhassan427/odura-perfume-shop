@@ -1,3 +1,3 @@
-done: Milestone 4 complete (delivery banners on Shop and Product pages, per-perfume bottle colours, visible focus outlines, centered container layout)
-next: Milestone 5 - Edge cases and docs: restored cart validation, change stock demo control, rule 1 test module, tests/rules.test.js, npm test script, vercel.json, DECISIONS.md, README updates
+done: Milestone 5 complete (restored cart validation, change stock demo control, rule 1 test module with 3 cases, npm test script, vercel.json, DECISIONS.md, README updates)
+next: Deploy to Vercel or similar hosting, then final ZIP and report preparation
 known issues: none

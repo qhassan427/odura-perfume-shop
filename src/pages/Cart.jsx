@@ -1,9 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { maxPerItemRule, sampleRule, deliveryRule } from '../utils/rules.js';
 
 export default function Cart({ cart, setCart, products }) {
   const [rule1Message, setRule1Message] = useState('');
+  const [restoreMessage, setRestoreMessage] = useState('');
+
+  useEffect(() => {
+    const invalid = [];
+    cart.forEach((item) => {
+      const product = products.find((p) => p.id === item.id);
+      if (!product) {
+        invalid.push(item.id + ' (' + item.size + ')');
+        return;
+      }
+      const sizeEntry = product.sizes.find((s) => s.size === item.size);
+      if (!sizeEntry || sizeEntry.stock < 1) {
+        invalid.push(item.id + ' (' + item.size + ')');
+      }
+    });
+    if (invalid.length > 0) {
+      setRestoreMessage('Some saved items are no longer available: ' + invalid.join(', ') + '. They have been removed.');
+      const next = cart.filter((item) => {
+        const product = products.find((p) => p.id === item.id);
+        if (!product) return false;
+        const sizeEntry = product.sizes.find((s) => s.size === item.size);
+        return sizeEntry && sizeEntry.stock > 0;
+      });
+      setCart(next);
+    }
+  }, [cart, products, setCart]);
 
   function itemProduct(id) {
     return products.find((p) => p.id === id);
@@ -45,6 +71,7 @@ export default function Cart({ cart, setCart, products }) {
   return (
     <main>
       <h1>Cart</h1>
+      {restoreMessage && <p style={{ color: '#a33232', fontSize: '0.9rem', marginBottom: '0.5rem' }}>{restoreMessage}</p>}
       {cart.length === 0 ? (
         <div className="empty">
           <h2>Your cart is empty</h2>
