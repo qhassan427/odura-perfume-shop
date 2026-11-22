@@ -39,6 +39,10 @@ export default function Product({ products, setCart, cart }) {
       setAddMsg(rule.message);
       return;
     }
+    if (qty > sizeEntry.stock) {
+      setAddMsg(`Only ${sizeEntry.stock} left in stock for ${size}.`);
+      return;
+    }
     setAddMsg('');
     const existing = cart.findIndex((i) => i.id === product.id && i.size === size);
     const next = [...cart];
@@ -47,6 +51,10 @@ export default function Product({ products, setCart, cart }) {
       const combinedRule = maxPerItemRule(combinedQty);
       if (!combinedRule.allowed) {
         setAddMsg(combinedRule.message);
+        return;
+      }
+      if (combinedQty > sizeEntry.stock) {
+        setAddMsg(`Only ${sizeEntry.stock} left in stock for ${size}.`);
         return;
       }
       next[existing].quantity = combinedQty;

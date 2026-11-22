@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 // Shows one perfume in the shop grid.
 // Falls back to a CSS-drawn bottle when no image is available.
 export default function ProductCard({ product, onAddToCart }) {
-  const minPrice = Math.min(...product.sizes.map((s) => s.price));
   const anyInStock = product.sizes.some((s) => s.stock > 0);
+  const sizeList = product.sizes.map((s) => `${s.size} Rs. ${s.price}`).join(' · ');
 
   return (
     <article className="card">
@@ -23,7 +23,7 @@ export default function ProductCard({ product, onAddToCart }) {
       <h3>{product.name}</h3>
       <p className="stock">{product.category}</p>
       <p>{product.notes}</p>
-      <p className="price">From Rs. {minPrice}</p>
+      <p className="price">{sizeList}</p>
       <p className={`stock ${anyInStock ? 'in-stock' : 'out-of-stock'}`}>
         {anyInStock ? 'In stock' : 'Out of stock'}
       </p>
