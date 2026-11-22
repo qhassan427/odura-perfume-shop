@@ -1,3 +1,3 @@
-done: Milestone 2 complete (Shop with search/filter/sort, Product details with invalid ID handling, async mock loader with loading/error/retry, empty states)
-next: Milestone 3 - Cart, form, rules: add/remove/change quantity and size, localStorage, checkout form, validation, itemised summary, 3 business rules, confirmation page
+done: Milestone 3 complete (Cart with add/remove/change qty+size, Checkout form with validation, itemised summary with delivery fee, 3 business rules, Confirmation page labelled simulated)
+next: Milestone 4 - Problem fixes and responsive styling: 390px and 1280px, keyboard use, visible focus, labels, semantic HTML
 known issues: none

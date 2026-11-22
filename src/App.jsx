@@ -81,11 +81,20 @@ function App() {
         />
         <Route
           path="/product/:id"
-          element={<Product products={products} />}
+          element={<Product products={products} setCart={setCart} cart={cart} />}
         />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/confirmation" element={<Confirmation />} />
+        <Route
+          path="/cart"
+          element={<Cart cart={cart} setCart={setCart} products={products} />}
+        />
+        <Route
+          path="/checkout"
+          element={<Checkout cart={cart} setCart={setCart} products={products} />}
+        />
+        <Route
+          path="/confirmation"
+          element={<Confirmation cart={cart} setCart={setCart} products={products} />}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

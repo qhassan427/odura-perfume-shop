@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { maxPerItemRule } from '../utils/rules.js';
 
-export default function Product({ products, onAddToCart }) {
+export default function Product({ products, setCart, cart }) {
   const { id } = useParams();
   const product = products.find((p) => p.id === id);
 
@@ -18,6 +20,38 @@ export default function Product({ products, onAddToCart }) {
   }
 
   const minPrice = Math.min(...product.sizes.map((s) => s.price));
+  const [addMsg, setAddMsg] = useState('');
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0].size);
+  const [selectedQty, setSelectedQty] = useState(1);
+
+  function addToCart(size, qty) {
+    const sizeEntry = product.sizes.find((s) => s.size === size);
+    if (!sizeEntry || sizeEntry.stock < 1) {
+      setAddMsg('This size is out of stock.');
+      return;
+    }
+    const rule = maxPerItemRule(qty);
+    if (!rule.allowed) {
+      setAddMsg(rule.message);
+      return;
+    }
+    setAddMsg('');
+    const existing = cart.findIndex((i) => i.id === product.id && i.size === size);
+    const next = [...cart];
+    if (existing >= 0) {
+      const combinedQty = next[existing].quantity + qty;
+      const combinedRule = maxPerItemRule(combinedQty);
+      if (!combinedRule.allowed) {
+        setAddMsg(combinedRule.message);
+        return;
+      }
+      next[existing].quantity = combinedQty;
+    } else {
+      next.push({ id: product.id, size, quantity: qty, price: sizeEntry.price });
+    }
+    setCart(next);
+    setAddMsg('Added to cart.');
+  }
 
   return (
     <main>
@@ -64,6 +98,20 @@ export default function Product({ products, onAddToCart }) {
               </li>
             ))}
           </ul>
+          {addMsg && <p style={{ color: addMsg === 'Added to cart.' ? '#2e7d32' : '#a33232', fontSize: '0.9rem', marginTop: '0.5rem', marginBottom: '0.5rem' }}>{addMsg}</p>}
+          <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <label htmlFor="prod-size" style={{ fontSize: '0.9rem', fontWeight: '500' }}>Size</label>
+            <select id="prod-size" value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)} className="focus-visible" style={{ minWidth: '80px' }}>
+              {product.sizes.map((s) => (
+                <option key={s.size} value={s.size} disabled={s.stock < 1}>
+                  {s.size} - Rs. {s.price} {s.stock < 1 ? '(out)' : ''}
+                </option>
+              ))}
+            </select>
+            <label htmlFor="prod-qty" style={{ fontSize: '0.9rem', fontWeight: '500' }}>Qty</label>
+            <input id="prod-qty" type="number" value={selectedQty} onChange={(e) => setSelectedQty(Math.max(1, parseInt(e.target.value) || 1))} min="1" max="5" style={{ width: '50px' }} className="focus-visible" />
+            <button onClick={() => addToCart(selectedSize, selectedQty)} className="btn btn-primary">Add to cart</button>
+          </div>
           <p className="price" style={{ marginTop: '1rem' }}>
             Starting from Rs. {minPrice}
           </p>
